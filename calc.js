@@ -10,7 +10,7 @@ keys.addEventListener('click', b => {
         const outNum = output.textContent;
 
         let array = keys.children
-        forEach(k => {k.classList.remove('isClicked')})
+        //array.forEach(k => {k.classList.remove('isClicked')})
 
         if(!action) {
             if(outNum === '0') {
@@ -24,9 +24,15 @@ keys.addEventListener('click', b => {
             key.classList.add('isClicked')
         }
         if (action === 'calc') {}
-        if (action === 'cls') {}
+        if (action === 'cls') {
+            output.textContent = '0'
+        }
         if (action === 'dec' && outNum.charAt(outNum.length-1) != '.') {
             output.textContent = outNum + keyContent
         }
     }
+})
+
+keys.addEventListener('hover', h => {
+    console.log('hover')
 })
