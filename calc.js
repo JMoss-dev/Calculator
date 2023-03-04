@@ -9,7 +9,8 @@ keys.addEventListener('click', b => {
         const keyContent = key.textContent
         const outNum = output.textContent;
 
-        Array.from(key.parentNode.childern).forEach(k => {k.classList.remove('isClicked')})
+        let array = keys.children
+        forEach(k => {k.classList.remove('isClicked')})
 
         if(!action) {
             if(outNum === '0') {
