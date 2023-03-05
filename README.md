@@ -12,4 +12,4 @@ This project is not intended for any usecase
 
 -https://zellwk.com/blog/calculator-part-1/
 
-![Calculator Image](assets\calc.png)
+![Calculator Image](assets/calc.png)
