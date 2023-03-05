@@ -8,7 +8,7 @@
     "start": "electron ."
   },
   "author": "JM",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^23.1.2"
   }
