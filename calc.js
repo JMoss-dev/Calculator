@@ -5,6 +5,8 @@ const output = calculator.querySelector('.calculator_output')
 var firstValue = ''
 var op = ''
 var secondValue = ''
+var opPressed = false
+var dotUsed = false
 
 keys.addEventListener('click', b => {
     if (b.target.matches('button')) {
@@ -12,7 +14,6 @@ keys.addEventListener('click', b => {
         const action = key.dataset.action
         const keyContent = key.textContent
         const outNum = output.textContent
-        const previousKeyType = calculator.dataset.previousKeyType
 
         Array.from(keys.getElementsByClassName('calculator_key')).forEach(k => {
             k.classList.remove('isClicked')
@@ -20,8 +21,10 @@ keys.addEventListener('click', b => {
 
 
         if(!action) {
-            if(outNum === '0' || previousKeyType === 'operator') {
+            if(outNum === '0' || opPressed) {
                 output.textContent = keyContent
+                opPressed = false
+                dotUsed = false
             }
             else {
                 output.textContent = outNum + keyContent
@@ -29,8 +32,8 @@ keys.addEventListener('click', b => {
         }
         if (action === 'add' || action === 'sub' ||action === 'mul' ||action === 'div') {
             key.classList.add('isClicked')
-            //add attribute for calculation
-            calculator.dataset.previousKeyType = 'operator'
+
+            opPressed = true
 
             firstValue = outNum
             op = action
@@ -38,13 +41,19 @@ keys.addEventListener('click', b => {
         if (action === 'calc') {
             secondValue = outNum
 
-            output.textContent = calculate()
+            firstValue = calculate()
+            output.textContent = firstValue
+
         }
         if (action === 'cls') {
             output.textContent = '0'
+
+            opPressed = false
+            dotUsed = false
         }
-        if (action === 'dec' && outNum.charAt(outNum.length-1) != '.') {
+        if (action === 'dec' && !dotUsed) {
             output.textContent = outNum + keyContent
+            dotUsed = true
         }
     }
 })
