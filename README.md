@@ -9,3 +9,5 @@ The goal is to create a simple Calculator
 -https://www.cssacademy.com/blog/create-a-calculator-in-html-and-css
 
 -https://zellwk.com/blog/calculator-part-1/
+
+![Calculator Image](calc.png)
